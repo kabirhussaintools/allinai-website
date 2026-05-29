@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All in AI Vision | The Future is Here</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; color: #fff; text-decoration: none;}
+        .logo span { color: #00f2fe; }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #111827 0%, #050505 100%);
+        }
+        .hero-badge {
+            background: rgba(0, 242, 254, 0.1);
+            color: #00f2fe;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #a5b4fc, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        .btn {
+            background: linear-gradient(90deg, #00f2fe, #4facfe);
+            color: #fff;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 5%;
+            text-align: center;
+        }
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 20px;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.05); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #e5e7eb; }
+        .card p { color: #9ca3af; font-size: 1rem; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #000;
+            color: #6b7280;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+            .features h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">allinai<span>.vision</span></a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-badge">✨ Redefining the Future</div>
+        <h1>Vision Beyond<br>Human Limits</h1>
+        <p>"Artificial Intelligence is not just about writing code; it is about rewriting the future. We are building the next generation of intelligent tools."</p>
+        <button class="btn" onclick="alert('Thank you for your interest! We will launch our full services soon. Stay tuned to allinai.vision!')">Join the Vision</button>
+    </section>
+
+    <section class="features" id="features">
+        <h2>Why allinai.vision?</h2>
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <h3>Advanced Intelligence</h3>
+                <p>Leveraging state-of-the-art machine learning models to solve complex real-world problems.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Seamless Automation</h3>
+                <p>Automate your daily workflows and scale your business operations with zero friction.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👁️</div>
+                <h3>Computer Vision</h3>
+                <p>Giving machines the ability to see, analyze, and understand the world like never before.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 allinai.vision. All rights reserved.</p>
+    </footer>
+
+</body>
+      </html>
+      
