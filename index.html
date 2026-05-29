@@ -3,166 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All in AI Vision | The Future of Intelligence</title>
+    <title>All in AI Vision | Transforming The Future</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap');
         
         :root {
-            --bg-dark: #050505;
-            --neon-blue: #00f2fe;
-            --neon-purple: #4facfe;
-            --text-light: #ffffff;
-            --text-gray: #9ca3af;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --bg-color: #030305;
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --text-main: #ffffff;
+            --text-muted: #8b949e;
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --border-glow: rgba(0, 242, 254, 0.15);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Space Grotesk', sans-serif; }
         
-        body { background-color: var(--bg-dark); color: var(--text-light); overflow-x: hidden; line-height: 1.7; }
+        body { background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; }
 
-        /* Animated Background Gradients */
-        .bg-glow {
-            position: absolute; width: 300px; height: 300px;
-            background: var(--neon-purple); filter: blur(150px);
-            border-radius: 50%; opacity: 0.3; z-index: -1;
-            top: -10%; left: -10%;
+        /* Animated Background Elements */
+        .glow-orb {
+            position: absolute; width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%; z-index: -1; top: -100px; left: -100px;
         }
-        .bg-glow.right { background: var(--neon-blue); top: 40%; right: -10%; left: auto; }
+        .glow-orb.two { top: 50%; right: -200px; left: auto; background: radial-gradient(circle, rgba(0, 242, 254, 0.1) 0%, rgba(0,0,0,0) 70%); }
 
         /* Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 5%; background: rgba(5, 5, 5, 0.8);
-            backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
+            padding: 25px 8%; background: rgba(3, 3, 5, 0.85);
+            backdrop-filter: blur(20px); position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .logo { font-size: 1.8rem; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -0.5px; }
-        .logo span { background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: -1px; }
+        .logo span { color: var(--primary); }
+        .contact-btn {
+            background: transparent; border: 1px solid var(--primary); color: var(--primary);
+            padding: 10px 24px; border-radius: 30px; cursor: pointer; font-weight: 600;
+            transition: all 0.3s ease; text-decoration: none;
+        }
+        .contact-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); }
 
         /* Hero Section */
         .hero {
             min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 120px 20px 50px;
+            text-align: center; padding: 150px 20px 80px; position: relative;
         }
-        .badge {
-            background: rgba(0, 242, 254, 0.1); border: 1px solid rgba(0, 242, 254, 0.3);
-            color: var(--neon-blue); padding: 8px 24px; border-radius: 50px; font-size: 0.9rem;
-            margin-bottom: 30px; letter-spacing: 1px; font-weight: 600; text-transform: uppercase;
+        .tagline {
+            background: rgba(0, 242, 254, 0.1); border: 1px solid var(--border-glow);
+            color: var(--primary); padding: 8px 20px; border-radius: 50px; font-size: 0.9rem;
+            margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
         }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 25px; font-weight: 800; }
-        .hero h1 span { background: linear-gradient(to right, #fff, var(--neon-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: clamp(1rem, 3vw, 1.2rem); color: var(--text-gray); max-width: 700px; margin-bottom: 40px; }
+        .hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1.1; margin-bottom: 30px; font-weight: 700; }
+        .hero h1 span { background: linear-gradient(90deg, #fff, #8b949e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: clamp(1.1rem, 3vw, 1.3rem); color: var(--text-muted); max-width: 750px; margin-bottom: 50px; line-height: 1.8; }
         
-        /* Details Section */
-        .details-section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; text-align: center; }
-        .details-section h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .details-section p { color: var(--text-gray); font-size: 1.1rem; max-width: 800px; margin: 0 auto 50px; }
-
-        /* Features Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card {
-            background: var(--glass-bg); border: 1px solid var(--glass-border);
-            padding: 40px 30px; border-radius: 20px; text-align: left;
-            transition: all 0.4s ease; backdrop-filter: blur(10px);
-        }
-        .card:hover { transform: translateY(-10px); border-color: rgba(0, 242, 254, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .card-icon { font-size: 2.5rem; margin-bottom: 20px; }
-        .card h3 { font-size: 1.4rem; margin-bottom: 15px; color: #fff; }
-        .card p { color: var(--text-gray); font-size: 1rem; line-height: 1.6; }
-
-        /* Working Join Section */
-        .join-section {
-            background: linear-gradient(180deg, rgba(5,5,5,0) 0%, rgba(0, 242, 254, 0.05) 100%);
-            padding: 100px 20px; text-align: center; border-top: 1px solid var(--glass-border);
-        }
-        .join-box {
-            background: var(--glass-bg); border: 1px solid var(--glass-border);
-            max-width: 600px; margin: 0 auto; padding: 50px 30px; border-radius: 30px;
-        }
-        .join-box h2 { font-size: 2.2rem; margin-bottom: 15px; }
-        .join-box p { color: var(--text-gray); margin-bottom: 30px; }
+        /* Features Section */
+        .features { padding: 100px 8%; max-width: 1400px; margin: 0 auto; text-align: center; }
+        .section-title { font-size: 2.8rem; margin-bottom: 20px; }
+        .section-subtitle { color: var(--text-muted); margin-bottom: 70px; font-size: 1.1rem; }
         
-        .join-form { display: flex; flex-direction: column; gap: 15px; }
-        .join-form input {
-            width: 100%; padding: 18px 25px; border-radius: 50px;
-            background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
-            color: #fff; font-size: 1rem; outline: none; transition: border 0.3s;
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+        .feature-card {
+            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
+            padding: 50px 40px; border-radius: 24px; text-align: left;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .join-form input:focus { border-color: var(--neon-blue); }
-        .join-form button {
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-            color: #fff; padding: 18px 30px; border: none; border-radius: 50px;
-            font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+        .feature-card:hover { 
+            transform: translateY(-10px); 
+            border-color: var(--border-glow); 
+            background: rgba(255,255,255,0.04);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
-        .join-form button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3); }
+        .icon-box { 
+            width: 60px; height: 60px; border-radius: 16px; 
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(79, 172, 254, 0.1));
+            display: flex; justify-content: center; align-items: center; font-size: 1.8rem; margin-bottom: 25px;
+        }
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .feature-card p { color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; }
+
+        /* Contact Form Section */
+        .contact-section { padding: 100px 20px; background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.03); }
+        .contact-container { max-width: 800px; margin: 0 auto; text-align: center; }
+        .form-box {
+            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
+            padding: 60px 40px; border-radius: 30px; margin-top: 50px;
+        }
+        .form-group { margin-bottom: 25px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 10px; color: var(--text-muted); font-size: 0.95rem; }
+        .form-control {
+            width: 100%; padding: 18px 24px; background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
+            color: #fff; font-size: 1rem; transition: all 0.3s ease;
+        }
+        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 15px rgba(0, 242, 254, 0.1); }
+        textarea.form-control { height: 150px; resize: none; }
+        .submit-btn {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: #000; border: none; padding: 20px 40px; width: 100%;
+            border-radius: 16px; font-size: 1.1rem; font-weight: 700; cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 242, 254, 0.2); }
 
         /* Footer */
-        footer { text-align: center; padding: 30px; border-top: 1px solid var(--glass-border); color: var(--text-gray); font-size: 0.9rem; }
-
-        @media (min-width: 768px) {
-            .join-form { flex-direction: row; }
-            .join-form button { width: 40%; }
-        }
+        footer { padding: 40px; text-align: center; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
-    <div class="bg-glow right"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb two"></div>
 
     <nav>
         <a href="#" class="logo">allinai<span>.vision</span></a>
+        <a href="#contact" class="contact-btn">Get in Touch</a>
     </nav>
 
     <section class="hero">
-        <div class="badge">Next Generation Tech</div>
-        <h1>The Future of <span>AI Vision</span></h1>
-        <p>We don't just build software. We build intelligent systems that see, analyze, and understand the world. Welcome to the frontier of artificial intelligence.</p>
-        <a href="#join" style="text-decoration: none;">
-            <button class="join-form button" style="background: linear-gradient(90deg, #00f2fe, #4facfe); color: #fff; padding: 15px 40px; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer;">Explore More</button>
+        <div class="tagline">Next-Gen Intelligence</div>
+        <h1>Vision Beyond <br><span>Human Limits</span></h1>
+        <p>We build highly sophisticated artificial intelligence systems designed to automate workflows, analyze complex data, and integrate seamless machine learning into your business infrastructure.</p>
+        <a href="#contact" style="text-decoration: none;">
+            <button class="submit-btn" style="width: auto; padding: 18px 45px;">Build With Us</button>
         </a>
     </section>
 
-    <section class="details-section">
-        <h2>Pioneering the AI Revolution</h2>
-        <p>At allinai.vision, we are dedicated to pushing the boundaries of what machines can perceive. Our deep learning models are crafted to solve complex, real-world problems with unprecedented accuracy and speed.</p>
+    <section class="features">
+        <h2 class="section-title">Enterprise AI Solutions</h2>
+        <p class="section-subtitle">Empowering businesses with state-of-the-art technological capabilities.</p>
         
         <div class="grid">
-            <div class="card">
-                <div class="card-icon">👁️</div>
-                <h3>Computer Vision</h3>
-                <p>Advanced image recognition, object detection, and visual tracking powered by cutting-edge neural networks. We give machines the power of sight.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">⚡</div>
+            <div class="feature-card">
+                <div class="icon-box">🤖</div>
                 <h3>Intelligent Automation</h3>
-                <p>Transform your workflow. Our AI seamlessly integrates into your business processes, reducing manual effort and multiplying efficiency.</p>
+                <p>Eliminate repetitive tasks. Our custom AI bots seamlessly integrate into your daily operations, allowing your team to focus on high-value creative work.</p>
             </div>
-            <div class="card">
-                <div class="card-icon">🧠</div>
-                <h3>Predictive Analytics</h3>
-                <p>Understand tomorrow, today. By analyzing vast amounts of data, our AI models predict trends and outcomes to help you make smarter decisions.</p>
+            <div class="feature-card">
+                <div class="icon-box">👁️</div>
+                <h3>Computer Vision Systems</h3>
+                <p>Advanced neural networks capable of image recognition, video analysis, and object tracking to extract meaningful insights from visual data.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box">📊</div>
+                <h3>Predictive Machine Learning</h3>
+                <p>Turn raw data into future strategies. We build models that predict trends, optimize logistics, and drive data-backed decision making.</p>
             </div>
         </div>
     </section>
 
-    <section class="join-section" id="join">
-        <div class="join-box">
-            <h2>Join the Vision</h2>
-            <p>Ready to see the future? Enter your email below to get exclusive updates, early access to our tools, and join our growing community.</p>
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2>Let's build the future together.</h2>
+            <p style="color: #8b949e; margin-top: 15px;">Fill out the form below and our team will get back to you securely.</p>
             
-            <form action="mailto:kabirhussain95@gmail.com" method="GET" enctype="text/plain" class="join-form">
-                <input type="hidden" name="subject" value="Website Join Request - All in AI Vision">
-                <input type="email" name="body" placeholder="Enter your email address..." required>
-                <button type="submit">Join Now</button>
-            </form>
-            <p style="font-size: 0.8rem; margin-top: 15px; color: #6b7280;">*Clicking join will safely open your email app to send us your request directly.</p>
+            <div class="form-box">
+                <form action="https://formsubmit.co/kabirhussain95@gmail.com" method="POST">
+                    
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Contact Request from All in AI Vision!">
+                    
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" class="form-control" placeholder="john@company.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>How can we help you?</label>
+                        <textarea name="message" class="form-control" placeholder="Tell us about your project or inquiry..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 allinai.vision. Redefining Human Potential.</p>
+        <p>&copy; 2026 allinai.vision. Built for the future.</p>
     </footer>
 
 </body>
