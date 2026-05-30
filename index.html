@@ -32,53 +32,75 @@
             border-radius: 8px; color: #fff; font-size: 1rem; outline: none; transition: all 0.3s ease;
         }
         input:focus, textarea:focus { border-color: #00f2fe; box-shadow: 0 0 10px rgba(0, 242, 254, 0.2); }
-        button {
+        
+        .action-btn {
             background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%); color: #000; font-weight: bold;
             font-size: 1.1rem; padding: 15px; border: none; border-radius: 8px; cursor: pointer;
-            transition: all 0.3s ease; margin-top: 10px;
+            transition: all 0.3s ease; margin-top: 10px; width: 100%;
         }
-        button:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(79, 172, 254, 0.5); }
+        .action-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(79, 172, 254, 0.5); }
         
-        /* Success Message Styling */
-        #success-message {
+        /* Payment-Style Success Screen (Hidden by default) */
+        #success-screen {
             display: none;
-            background: rgba(0, 255, 135, 0.1);
-            border: 1px solid #00ff87;
-            color: #00ff87;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-weight: bold;
-            font-size: 1.1rem;
             animation: fadeIn 0.5s ease;
         }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+        .success-title {
+            color: #00ff87;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .success-desc {
+            color: #ccc;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+        .done-btn {
+            background: transparent;
+            border: 2px solid #00f2fe;
+            color: #00f2fe;
+        }
+        .done-btn:hover {
+            background: rgba(0, 242, 254, 0.1);
+        }
         
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         .seo-hidden { font-size: 0.8rem; color: #0a0a1a; margin-top: 40px; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1 class="glow-text">allinai.vision</h1>
-        <p class="subtitle">This premium domain is currently available for acquisition. Submit your proposal to initiate negotiations.</p>
         
-        <form id="offerForm" action="https://formsubmit.co/kabirhussaing95@GMAIL.COM" method="POST">
-            <input type="hidden" name="_subject" value="New Acquisition Offer for allinai.vision">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value=""> 
+        <div id="form-section">
+            <h1 class="glow-text">allinai.vision</h1>
+            <p class="subtitle">This premium domain is currently available for acquisition. Submit your proposal to initiate negotiations.</p>
             
-            <input type="text" name="Name" placeholder="Your Name or Company" required>
-            <input type="email" name="Email" placeholder="Corporate Email Address" required>
-            <input type="text" name="Offer_Amount" placeholder="Offer Amount ($ USD)" required>
-            <textarea name="Message" rows="3" placeholder="Additional details or intended use for the domain..." required></textarea>
-            
-            <button type="submit" id="submitBtn">Submit Secure Offer</button>
-        </form>
-
-        <div id="success-message">
-            ✓ Offer Submitted Successfully. Our team will review and contact you shortly.
+            <form id="offerForm" action="https://formsubmit.co/kabirhussaing95@@GMAIL.COM" method="POST">
+                <input type="hidden" name="_subject" value="New Acquisition Offer for allinai.vision">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <input type="text" name="Name" placeholder="Your Name or Company" required>
+                <input type="email" name="Email" placeholder="Corporate Email Address" required>
+                <input type="text" name="Offer_Amount" placeholder="Offer Amount ($ USD)" required>
+                <textarea name="Message" rows="3" placeholder="Additional details or intended use for the domain..." required></textarea>
+                
+                <button type="submit" id="submitBtn" class="action-btn">Submit Secure Offer</button>
+            </form>
         </div>
+
+        <div id="success-screen">
+            <div class="success-icon">✅</div>
+            <h2 class="success-title">Offer Submitted Successfully</h2>
+            <p class="success-desc">Your acquisition proposal has been securely routed to our management team. We will contact you at the provided email address shortly.</p>
+            
+            <button id="doneBtn" class="action-btn done-btn">Done</button>
+        </div>
+
     </div>
 
     <div class="seo-hidden">
@@ -86,37 +108,44 @@
     </div>
 
     <script>
-        document.getElementById('offerForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop the normal redirect
-            
-            const form = e.target;
-            const btn = document.getElementById('submitBtn');
-            const successMsg = document.getElementById('success-message');
-            
-            // Change button text while sending
-            btn.innerText = "Submitting...";
-            btn.style.opacity = "0.7";
+        const offerForm = document.getElementById('offerForm');
+        const formSection = document.getElementById('form-section');
+        const successScreen = document.getElementById('success-screen');
+        const submitBtn = document.getElementById('submitBtn');
+        const doneBtn = document.getElementById('doneBtn');
 
-            // Send data in the background
-            fetch(form.action, {
+        // When user clicks Submit
+        offerForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            submitBtn.innerText = "Processing...";
+            submitBtn.disabled = true;
+
+            fetch(offerForm.action, {
                 method: 'POST',
-                body: new FormData(form),
+                body: new FormData(offerForm),
                 headers: { 'Accept': 'application/json' }
             })
             .then(response => {
                 if(response.ok) {
-                    // Hide the form and show the green success message
-                    form.style.display = 'none';
-                    successMsg.style.display = 'block';
+                    // Hide the form, Show the Success Screen
+                    formSection.style.display = 'none';
+                    successScreen.style.display = 'block';
                 } else {
-                    btn.innerText = "Error. Please try again.";
-                    btn.style.opacity = "1";
+                    submitBtn.innerText = "Error. Please try again.";
+                    submitBtn.disabled = false;
                 }
             })
             .catch(error => {
-                btn.innerText = "Error. Please try again.";
-                btn.style.opacity = "1";
+                submitBtn.innerText = "Error. Please try again.";
+                submitBtn.disabled = false;
             });
+        });
+
+        // When user clicks Done
+        doneBtn.addEventListener('click', function() {
+            // This instantly refreshes and redirects them back to the clean home page
+            window.location.href = "https://allinai.vision"; 
         });
     </script>
 
