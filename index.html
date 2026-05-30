@@ -2,330 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>All in AI Vision | The Frontier of Intelligence</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>All in AI Vision | Premium AI Domain for Sale</title>
+    <meta name="description" content="All in AI Vision is a premium domain available for acquisition. Perfect for artificial intelligence, computer vision, and machine learning startups.">
+    <meta name="keywords" content="All in AI, AI Vision, Artificial Intelligence, Computer Vision domain, Tech domain for sale">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap');
-        
-        :root {
-            --bg-dark: #030303;
-            --bg-card: #0a0a0c;
-            --primary: #00e5ff;
-            --secondary: #7000ff;
-            --text-main: #ffffff;
-            --text-muted: #8a8f98;
-            --glass-border: rgba(255, 255, 255, 0.08);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
-
-        /* Strict CSS Reset */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body, html { 
-            width: 100%; 
-            background-color: var(--bg-dark); 
-            color: var(--text-main); 
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            -webkit-font-smoothing: antialiased;
+        body {
+            background-color: #050505; /* Deep AI Dark Background */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050505 100%);
         }
-
-        /* Anti-Overflow Screen Lock */
-        .main-wrapper {
-            width: 100%; overflow: hidden; position: relative; min-height: 100vh;
+        .container {
+            max-width: 800px;
+            padding: 40px 20px;
+            z-index: 2;
         }
-
-        /* Futuristic Grid Background */
-        .bg-grid {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 40px 40px; z-index: -2;
-            -webkit-mask-image: radial-gradient(circle at top, black 30%, transparent 80%);
-            mask-image: radial-gradient(circle at top, black 30%, transparent 80%);
+        .glow-text {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 0px 20px rgba(0, 242, 254, 0.4);
         }
-
-        /* Ambient Glow */
-        .ambient-glow {
-            position: absolute; width: 100%; max-width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(112, 0, 255, 0.15) 0%, rgba(0,0,0,0) 60%);
-            border-radius: 50%; z-index: -1; top: -100px; left: 50%; transform: translateX(-50%);
-            filter: blur(60px); pointer-events: none;
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-bottom: 50px;
+            line-height: 1.6;
         }
-
-        /* Modern Navigation */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 18px 24px; background: rgba(3, 3, 3, 0.7);
-            backdrop-filter: blur(24px); position: fixed; width: 100%; top: 0; z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
+        .sale-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-        .logo { 
-            display: flex; align-items: center; gap: 8px;
-            font-size: 1.2rem; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -0.5px; 
+        .sale-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ffffff;
         }
-        .logo-icon {
-            width: 24px; height: 24px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 6px; display: inline-block;
+        .sale-box p {
+            color: #cccccc;
+            margin-bottom: 30px;
+            font-size: 1rem;
         }
-        .logo span { color: var(--text-muted); font-weight: 400; }
-        
-        .nav-btn {
-            background: #fff; color: #000; padding: 8px 18px; border-radius: 100px;
-            font-weight: 700; text-decoration: none; font-size: 0.85rem; transition: 0.3s;
+        .contact-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+            color: #000;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
         }
-        .nav-btn:hover { box-shadow: 0 0 15px rgba(255,255,255,0.4); transform: scale(1.05); }
-
-        /* Success Popup Notification (Toast) */
-        .success-toast {
-            position: fixed; top: 20px; left: 50%;
-            transform: translateX(-50%) translateY(-100px);
-            background: rgba(0, 229, 255, 0.1); border: 1px solid rgba(0, 229, 255, 0.3);
-            backdrop-filter: blur(12px); color: #fff; padding: 14px 24px;
-            border-radius: 100px; display: flex; align-items: center; gap: 12px;
-            z-index: 9999; font-weight: 600; font-size: 0.9rem; white-space: nowrap;
-            opacity: 0; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.8);
         }
-        .success-toast.show { transform: translateX(-50%) translateY(70px); opacity: 1; }
-        .toast-icon {
-            background: var(--primary); color: #000; width: 22px; height: 22px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 0.8rem; font-weight: bold;
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 150px 24px 80px; width: 100%; max-width: 900px; margin: 0 auto;
-        }
-        .hero-badge {
-            background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
-            padding: 8px 20px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;
-            margin-bottom: 25px; color: var(--primary); letter-spacing: 1px; text-transform: uppercase;
-            box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
-        }
-        .hero h1 { 
-            font-size: clamp(2.5rem, 10vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 800; letter-spacing: -1px;
-        }
-        .hero h1 span { 
-            background: linear-gradient(135deg, #fff 0%, #7000ff 100%); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-        }
-        .hero p { 
-            font-size: 1.05rem; color: var(--text-muted); 
-            margin-bottom: 40px; line-height: 1.6; font-weight: 400;
-        }
-
-        /* Features Section */
-        .features { padding: 60px 24px; width: 100%; max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 12px;}
-        .section-header p { color: var(--text-muted); font-size: 1rem; line-height: 1.5; }
-
-        .grid { display: flex; flex-direction: column; gap: 20px; }
-        .feature-card {
-            background: var(--bg-card); border: 1px solid var(--glass-border);
-            padding: 35px 25px; border-radius: 20px; transition: 0.4s; position: relative;
-        }
-        .icon-wrapper {
-            width: 54px; height: 54px; border-radius: 14px; background: rgba(255,255,255,0.03);
-            border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; margin-bottom: 20px;
-        }
-        .feature-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; }
-        .feature-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
-
-        /* Premium Contact Form */
-        .contact-section { padding: 80px 24px; background: #000; border-top: 1px solid var(--glass-border); width: 100%; }
-        .contact-wrapper { width: 100%; max-width: 600px; margin: 0 auto; }
-        .contact-header { text-align: center; margin-bottom: 40px; }
-        .contact-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
-        
-        .form-box {
-            background: var(--bg-card); border: 1px solid var(--glass-border);
-            padding: 35px 24px; border-radius: 24px; width: 100%;
-        }
-        .input-group { margin-bottom: 20px; width: 100%; }
-        .input-group label { display: block; color: #fff; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
-        .modern-input {
-            width: 100%; padding: 16px; background: #050505;
-            border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
-            color: #fff; font-size: 1rem; transition: 0.3s;
-        }
-        .modern-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.2); }
-        textarea.modern-input { height: 130px; resize: none; }
-        
-        .btn-submit {
-            width: 100%; padding: 18px; background: #fff; color: #000;
-            border: none; border-radius: 12px; font-size: 1.05rem; font-weight: 700;
-            cursor: pointer; margin-top: 10px; transition: 0.3s;
-        }
-        .btn-submit:hover { background: var(--primary); color: #000; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 229, 255, 0.2); }
-        .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
-
-        footer { text-align: center; padding: 30px 24px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--glass-border); width: 100%; }
-
-        @media (min-width: 768px) {
-            nav { padding: 24px 6%; }
-            .logo { font-size: 1.6rem; }
-            .hero { padding: 180px 24px 100px; }
-            .features, .contact-section { padding: 100px 6%; }
-            .grid { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 30px; }
-            .feature-card { width: calc(33.333% - 20px); padding: 40px; }
-            .form-box { padding: 50px; }
+        .footer {
+            margin-top: 50px;
+            color: #555;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <div id="success-toast" class="success-toast">
-        <div class="toast-icon">✓</div>
-        Message Sent Successfully!
-    </div>
-
-    <div id="error-toast" class="success-toast" style="background: rgba(255, 50, 50, 0.1); border-color: rgba(255, 50, 50, 0.3); box-shadow: 0 10px 30px rgba(255, 50, 50, 0.2);">
-        <div class="toast-icon" style="background: #ff3232; color: #fff;">!</div>
-        Something went wrong. Try again.
-    </div>
-
-    <div class="main-wrapper">
+    <div class="container">
+        <h1 class="glow-text">AllinAI.vision</h1>
+        <p class="subtitle">The foundational digital asset for the next generation of Artificial Intelligence and Computer Vision.</p>
         
-        <div class="bg-grid"></div>
-        <div class="ambient-glow"></div>
-
-        <nav>
-            <a href="#" class="logo">
-                <div class="logo-icon"></div>
-                ALLINAI<span>.VISION</span>
-            </a>
-            <a href="#contact" class="nav-btn">Connect</a>
-        </nav>
-
-        <section class="hero">
-            <div class="hero-badge">Next-Gen Intelligence</div>
-            <h1>Intelligence<br><span>Redefined.</span></h1>
-            <p>We architect sophisticated AI models, computer vision systems, and automated infrastructures to scale your business beyond human limitations.</p>
-        </section>
-
-        <section class="features">
-            <div class="section-header">
-                <h2>Our Capabilities</h2>
-                <p>Deploying state-of-the-art machine learning into real-world applications.</p>
-            </div>
+        <div class="sale-box">
+            <h2>This Premium Domain is Available for Acquisition</h2>
+            <p>Secure the perfect brand identity for your AI enterprise. Direct transfer available.</p>
             
-            <div class="grid">
-                <div class="feature-card">
-                    <div class="icon-wrapper">👁️</div>
-                    <h3>Computer Vision</h3>
-                    <p>Deploy high-accuracy spatial computing and image recognition models to extract actionable data from visual environments.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon-wrapper">⚡</div>
-                    <h3>Autonomous Systems</h3>
-                    <p>Replace manual bottlenecks with custom AI agents that execute complex, multi-step workflows with zero latency.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon-wrapper">🧠</div>
-                    <h3>Predictive Analytics</h3>
-                    <p>Leverage deep learning algorithms to process massive datasets, forecast market trends, and optimize resource allocation.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact-section" id="contact">
-            <div class="contact-wrapper">
-                <div class="contact-header">
-                    <h2>Initiate Project</h2>
-                    <p style="color: var(--text-muted);">Connect with our engineering team.</p>
-                </div>
-                
-                <div class="form-box">
-                    <form id="contactForm" action="https://formsubmit.co/kabirhussaing95@gmail.com" method="POST">
-                        
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_subject" value="🚀 New Lead: All in AI Vision">
-                        <input type="hidden" name="_template" value="box">
-                        
-                        <div class="input-group">
-                            <label>Full Name</label>
-                            <input type="text" name="Name" class="modern-input" placeholder="e.g. Elon Musk" required>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label>Email Address</label>
-                            <input type="email" name="Email" class="modern-input" placeholder="elon@tesla.com" required>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label>Project Details</label>
-                            <textarea name="Message" class="modern-input" placeholder="Describe your technical requirements..." required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn-submit" id="submitBtn">Submit Inquiry</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 ALLINAI.VISION. Engineering the future.</p>
-        </footer>
-
+            <a href="mailto: kabirhussaing95@GMAIL.COM?subject=Offer for AllinAI.vision" class="contact-btn">Submit Your Offer</a>
+        </div>
+        
+        <div class="footer">
+            &copy; 2026 AllinAI.vision. All rights reserved.
+        </div>
     </div>
 
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevents the page from redirecting
-            
-            const form = e.target;
-            const btn = document.getElementById('submitBtn');
-            const data = new FormData(form);
-            
-            // Change button text and disable it while sending
-            const originalBtnText = btn.innerText;
-            btn.innerText = 'Sending...';
-            btn.disabled = true;
-
-            fetch(form.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json' // Tells FormSubmit to return JSON, not a webpage
-                }
-            }).then(response => {
-                if (response.ok) {
-                    // Show success popup
-                    const toast = document.getElementById('success-toast');
-                    toast.classList.add('show');
-                    setTimeout(() => toast.classList.remove('show'), 5000);
-                    form.reset(); // Clear form fields
-                } else {
-                    // Show error popup
-                    const errorToast = document.getElementById('error-toast');
-                    errorToast.classList.add('show');
-                    setTimeout(() => errorToast.classList.remove('show'), 5000);
-                }
-            }).catch(error => {
-                // Show error popup
-                const errorToast = document.getElementById('error-toast');
-                errorToast.classList.add('show');
-                setTimeout(() => errorToast.classList.remove('show'), 5000);
-            }).finally(() => {
-                // Restore button state
-                btn.innerText = originalBtnText;
-                btn.disabled = false;
-            });
-        });
-
-        /* Desktop Hover Effect */
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-                card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-            });
-        });
-    </script>
 </body>
 </html>
