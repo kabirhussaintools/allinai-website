@@ -41,32 +41,12 @@
         .action-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(79, 172, 254, 0.5); }
         
         /* Payment-Style Success Screen (Hidden by default) */
-        #success-screen {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        .success-icon {
-            font-size: 4rem;
-            margin-bottom: 15px;
-        }
-        .success-title {
-            color: #00ff87;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-        .success-desc {
-            color: #ccc;
-            margin-bottom: 30px;
-            font-size: 1rem;
-        }
-        .done-btn {
-            background: transparent;
-            border: 2px solid #00f2fe;
-            color: #00f2fe;
-        }
-        .done-btn:hover {
-            background: rgba(0, 242, 254, 0.1);
-        }
+        #success-screen { display: none; animation: fadeIn 0.5s ease; }
+        .success-icon { font-size: 4rem; margin-bottom: 15px; }
+        .success-title { color: #00ff87; font-size: 1.8rem; margin-bottom: 10px; }
+        .success-desc { color: #ccc; margin-bottom: 30px; font-size: 1rem; line-height: 1.5; }
+        .done-btn { background: transparent; border: 2px solid #00f2fe; color: #00f2fe; }
+        .done-btn:hover { background: rgba(0, 242, 254, 0.1); }
         
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         .seo-hidden { font-size: 0.8rem; color: #0a0a1a; margin-top: 40px; }
@@ -80,13 +60,18 @@
             <h1 class="glow-text">allinai.vision</h1>
             <p class="subtitle">This premium domain is currently available for acquisition. Submit your proposal to initiate negotiations.</p>
             
-            <form id="offerForm" action="https://formsubmit.co/kabirhussaing95@@GMAIL.COM" method="POST">
+            <form id="offerForm" action="https://formsubmit.co/kabirhussaing95@GMAIL.COM" method="POST">
                 <input type="hidden" name="_subject" value="New Acquisition Offer for allinai.vision">
                 <input type="hidden" name="_captcha" value="false">
                 
                 <input type="text" name="Name" placeholder="Your Name or Company" required>
                 <input type="email" name="Email" placeholder="Corporate Email Address" required>
-                <input type="text" name="Offer_Amount" placeholder="Offer Amount ($ USD)" required>
+                
+                <div style="position: relative;">
+                    <span style="position: absolute; left: 15px; top: 15px; color: #00f2fe; font-size: 1rem; font-weight: bold;">$</span>
+                    <input type="text" name="Offer_Amount" id="offerAmountInput" placeholder="Offer Amount (USD)" required style="padding-left: 35px; width: 100%;">
+                </div>
+
                 <textarea name="Message" rows="3" placeholder="Additional details or intended use for the domain..." required></textarea>
                 
                 <button type="submit" id="submitBtn" class="action-btn">Submit Secure Offer</button>
@@ -113,8 +98,21 @@
         const successScreen = document.getElementById('success-screen');
         const submitBtn = document.getElementById('submitBtn');
         const doneBtn = document.getElementById('doneBtn');
+        const offerInput = document.getElementById('offerAmountInput');
 
-        // When user clicks Submit
+        // 1. Force the Offer Amount field to only accept numbers and add commas
+        offerInput.addEventListener('input', function(e) {
+            // Remove anything that is not a number
+            let value = this.value.replace(/[^0-9]/g, '');
+            
+            // Add commas for thousands (e.g. 10,000)
+            if (value) {
+                value = parseInt(value, 10).toLocaleString('en-US');
+            }
+            this.value = value;
+        });
+
+        // 2. Handle the seamless background submission
         offerForm.addEventListener('submit', function(e) {
             e.preventDefault(); 
             
@@ -128,7 +126,7 @@
             })
             .then(response => {
                 if(response.ok) {
-                    // Hide the form, Show the Success Screen
+                    // Success! Hide form, show the green checkmark screen
                     formSection.style.display = 'none';
                     successScreen.style.display = 'block';
                 } else {
@@ -142,9 +140,8 @@
             });
         });
 
-        // When user clicks Done
+        // 3. Handle the "Done" button click
         doneBtn.addEventListener('click', function() {
-            // This instantly refreshes and redirects them back to the clean home page
             window.location.href = "https://allinai.vision"; 
         });
     </script>
