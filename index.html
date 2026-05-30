@@ -3,194 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All in AI Vision | Transforming The Future</title>
+    <title>All in AI Vision | The Frontier of Intelligence</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap');
         
         :root {
-            --bg-color: #030305;
-            --primary: #00f2fe;
-            --secondary: #4facfe;
+            --bg-dark: #050505;
+            --bg-card: #0a0a0c;
+            --primary: #00e5ff;
+            --secondary: #7000ff;
             --text-main: #ffffff;
-            --text-muted: #8b949e;
-            --card-bg: rgba(255, 255, 255, 0.02);
-            --border-glow: rgba(0, 242, 254, 0.15);
+            --text-muted: #8a8f98;
+            --glass-border: rgba(255, 255, 255, 0.08);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Space Grotesk', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         
-        body { background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; }
-
-        /* Animated Background Elements */
-        .glow-orb {
-            position: absolute; width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(79, 172, 254, 0.15) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%; z-index: -1; top: -100px; left: -100px;
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            overflow-x: hidden; 
+            -webkit-font-smoothing: antialiased;
         }
-        .glow-orb.two { top: 50%; right: -200px; left: auto; background: radial-gradient(circle, rgba(0, 242, 254, 0.1) 0%, rgba(0,0,0,0) 70%); }
 
-        /* Navigation */
+        /* Ambient Background Glow */
+        .ambient-glow {
+            position: absolute; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(112, 0, 255, 0.15) 0%, rgba(0,0,0,0) 60%);
+            border-radius: 50%; z-index: -1; top: -200px; left: -200px;
+            filter: blur(60px);
+        }
+        .ambient-glow.right {
+            top: 40%; right: -300px; left: auto;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.1) 0%, rgba(0,0,0,0) 60%);
+        }
+
+        /* Modern Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 8%; background: rgba(3, 3, 5, 0.85);
-            backdrop-filter: blur(20px); position: fixed; width: 100%; top: 0; z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 24px 6%; background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(24px); position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
         }
-        .logo { font-size: 1.8rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: -1px; }
-        .logo span { color: var(--primary); }
-        .contact-btn {
-            background: transparent; border: 1px solid var(--primary); color: var(--primary);
-            padding: 10px 24px; border-radius: 30px; cursor: pointer; font-weight: 600;
-            transition: all 0.3s ease; text-decoration: none;
+        .logo { 
+            display: flex; align-items: center; gap: 8px;
+            font-size: 1.6rem; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -0.5px; 
         }
-        .contact-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); }
+        .logo-icon {
+            width: 28px; height: 28px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 8px; display: inline-block;
+        }
+        .logo span { color: var(--text-muted); font-weight: 400; }
+        
+        .nav-btn {
+            background: #fff; color: #000; padding: 10px 24px; border-radius: 100px;
+            font-weight: 700; text-decoration: none; font-size: 0.9rem; transition: 0.3s;
+        }
+        .nav-btn:hover { box-shadow: 0 0 20px rgba(255,255,255,0.3); transform: scale(1.05); }
 
         /* Hero Section */
         .hero {
             min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 150px 20px 80px; position: relative;
+            text-align: center; padding: 160px 20px 80px; position: relative;
         }
-        .tagline {
-            background: rgba(0, 242, 254, 0.1); border: 1px solid var(--border-glow);
-            color: var(--primary); padding: 8px 20px; border-radius: 50px; font-size: 0.9rem;
-            margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+        .hero-badge {
+            background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
+            padding: 8px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600;
+            margin-bottom: 30px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;
         }
-        .hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1.1; margin-bottom: 30px; font-weight: 700; }
-        .hero h1 span { background: linear-gradient(90deg, #fff, #8b949e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: clamp(1.1rem, 3vw, 1.3rem); color: var(--text-muted); max-width: 750px; margin-bottom: 50px; line-height: 1.8; }
-        
+        .hero h1 { 
+            font-size: clamp(3rem, 8vw, 6rem); line-height: 1.05; margin-bottom: 30px; font-weight: 800; letter-spacing: -2px;
+        }
+        .hero h1 span { 
+            background: linear-gradient(135deg, #fff 0%, #7000ff 100%); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+        }
+        .hero p { 
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--text-muted); 
+            max-width: 650px; margin-bottom: 50px; line-height: 1.6; font-weight: 400;
+        }
+
         /* Features Section */
-        .features { padding: 100px 8%; max-width: 1400px; margin: 0 auto; text-align: center; }
-        .section-title { font-size: 2.8rem; margin-bottom: 20px; }
-        .section-subtitle { color: var(--text-muted); margin-bottom: 70px; font-size: 1.1rem; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+        .features { padding: 120px 6%; max-width: 1400px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 80px; }
+        .section-header h2 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px;}
+        .section-header p { color: var(--text-muted); font-size: 1.2rem; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
         .feature-card {
-            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
-            padding: 50px 40px; border-radius: 24px; text-align: left;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--bg-card); border: 1px solid var(--glass-border);
+            padding: 50px 40px; border-radius: 30px; transition: 0.4s; position: relative; overflow: hidden;
         }
-        .feature-card:hover { 
-            transform: translateY(-10px); 
-            border-color: var(--border-glow); 
-            background: rgba(255,255,255,0.04);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        .feature-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%);
+            opacity: 0; transition: opacity 0.4s; z-index: 1; pointer-events: none;
         }
-        .icon-box { 
-            width: 60px; height: 60px; border-radius: 16px; 
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(79, 172, 254, 0.1));
-            display: flex; justify-content: center; align-items: center; font-size: 1.8rem; margin-bottom: 25px;
+        .feature-card:hover::before { opacity: 1; }
+        .feature-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-5px); }
+        
+        .icon-wrapper {
+            width: 64px; height: 64px; border-radius: 20px; background: rgba(255,255,255,0.03);
+            border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; margin-bottom: 30px;
         }
-        .feature-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .feature-card h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 15px; letter-spacing: -0.5px; }
         .feature-card p { color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; }
 
-        /* Contact Form Section */
-        .contact-section { padding: 100px 20px; background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.03); }
-        .contact-container { max-width: 800px; margin: 0 auto; text-align: center; }
+        /* Premium Contact Form */
+        .contact-section { padding: 120px 6%; background: #000; border-top: 1px solid var(--glass-border); }
+        .contact-wrapper { max-width: 600px; margin: 0 auto; }
+        .contact-header { text-align: center; margin-bottom: 50px; }
+        .contact-header h2 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px; }
+        
         .form-box {
-            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
-            padding: 60px 40px; border-radius: 30px; margin-top: 50px;
+            background: var(--bg-card); border: 1px solid var(--glass-border);
+            padding: 50px; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
-        .form-group { margin-bottom: 25px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 10px; color: var(--text-muted); font-size: 0.95rem; }
-        .form-control {
-            width: 100%; padding: 18px 24px; background: rgba(0,0,0,0.5);
+        .input-group { margin-bottom: 24px; }
+        .input-group label { display: block; color: #fff; font-weight: 600; margin-bottom: 10px; font-size: 0.95rem; }
+        .modern-input {
+            width: 100%; padding: 20px; background: #050505;
             border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
-            color: #fff; font-size: 1rem; transition: all 0.3s ease;
+            color: #fff; font-size: 1.05rem; transition: 0.3s;
         }
-        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 15px rgba(0, 242, 254, 0.1); }
-        textarea.form-control { height: 150px; resize: none; }
-        .submit-btn {
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            color: #000; border: none; padding: 20px 40px; width: 100%;
-            border-radius: 16px; font-size: 1.1rem; font-weight: 700; cursor: pointer;
-            transition: transform 0.3s ease;
+        .modern-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.1); }
+        textarea.modern-input { height: 160px; resize: none; }
+        
+        .btn-submit {
+            width: 100%; padding: 22px; background: #fff; color: #000;
+            border: none; border-radius: 16px; font-size: 1.1rem; font-weight: 700;
+            cursor: pointer; transition: 0.3s; margin-top: 10px;
         }
-        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 242, 254, 0.2); }
+        .btn-submit:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 229, 255, 0.2); }
 
-        /* Footer */
-        footer { padding: 40px; text-align: center; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.05); }
+        footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--glass-border); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .form-box { padding: 30px 20px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="glow-orb"></div>
-    <div class="glow-orb two"></div>
+    <div class="ambient-glow"></div>
+    <div class="ambient-glow right"></div>
 
     <nav>
-        <a href="#" class="logo">allinai<span>.vision</span></a>
-        <a href="#contact" class="contact-btn">Get in Touch</a>
+        <a href="#" class="logo">
+            <div class="logo-icon"></div>
+            ALLINAI<span>.VISION</span>
+        </a>
+        <a href="#contact" class="nav-btn">Connect</a>
     </nav>
 
     <section class="hero">
-        <div class="tagline">Next-Gen Intelligence</div>
-        <h1>Vision Beyond <br><span>Human Limits</span></h1>
-        <p>We build highly sophisticated artificial intelligence systems designed to automate workflows, analyze complex data, and integrate seamless machine learning into your business infrastructure.</p>
-        <a href="#contact" style="text-decoration: none;">
-            <button class="submit-btn" style="width: auto; padding: 18px 45px;">Build With Us</button>
-        </a>
+        <div class="hero-badge">Next Generation Artificial Intelligence</div>
+        <h1>Intelligence<br><span>Redefined.</span></h1>
+        <p>We architect sophisticated AI models, computer vision systems, and automated infrastructures to scale your business beyond human limitations.</p>
     </section>
 
     <section class="features">
-        <h2 class="section-title">Enterprise AI Solutions</h2>
-        <p class="section-subtitle">Empowering businesses with state-of-the-art technological capabilities.</p>
+        <div class="section-header">
+            <h2>Our Capabilities</h2>
+            <p>Deploying state-of-the-art machine learning into real-world applications.</p>
+        </div>
         
         <div class="grid">
             <div class="feature-card">
-                <div class="icon-box">🤖</div>
-                <h3>Intelligent Automation</h3>
-                <p>Eliminate repetitive tasks. Our custom AI bots seamlessly integrate into your daily operations, allowing your team to focus on high-value creative work.</p>
+                <div class="icon-wrapper">👁️</div>
+                <h3>Computer Vision</h3>
+                <p>Deploy high-accuracy spatial computing and image recognition models to extract actionable data from visual environments.</p>
             </div>
             <div class="feature-card">
-                <div class="icon-box">👁️</div>
-                <h3>Computer Vision Systems</h3>
-                <p>Advanced neural networks capable of image recognition, video analysis, and object tracking to extract meaningful insights from visual data.</p>
+                <div class="icon-wrapper">⚡</div>
+                <h3>Autonomous Systems</h3>
+                <p>Replace manual bottlenecks with custom AI agents that execute complex, multi-step workflows with zero latency.</p>
             </div>
             <div class="feature-card">
-                <div class="icon-box">📊</div>
-                <h3>Predictive Machine Learning</h3>
-                <p>Turn raw data into future strategies. We build models that predict trends, optimize logistics, and drive data-backed decision making.</p>
+                <div class="icon-wrapper">🧠</div>
+                <h3>Predictive Analytics</h3>
+                <p>Leverage deep learning algorithms to process massive datasets, forecast market trends, and optimize resource allocation.</p>
             </div>
         </div>
     </section>
 
     <section class="contact-section" id="contact">
-        <div class="contact-container">
-            <h2>Let's build the future together.</h2>
-            <p style="color: #8b949e; margin-top: 15px;">Fill out the form below and our team will get back to you securely.</p>
+        <div class="contact-wrapper">
+            <div class="contact-header">
+                <h2>Initiate Project</h2>
+                <p style="color: var(--text-muted);">Connect with our engineering team.</p>
+            </div>
             
             <div class="form-box">
                 <form action="https://formsubmit.co/kabirhussaing95@gmail.com" method="POST">
                     
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="New Contact Request from All in AI Vision!">
+                    <input type="hidden" name="_subject" value="🚀 New Lead: All in AI Vision">
                     <input type="hidden" name="_next" value="https://allinai.vision">
-                    <input type="hidden" name="_template" value="table">
                     
-                    <div class="form-group">
+                    <input type="hidden" name="_template" value="box">
+                    
+                    <div class="input-group">
                         <label>Full Name</label>
-                        <input type="text" name="name" class="form-control" placeholder="John Doe" required>
+                        <input type="text" name="Name" class="modern-input" placeholder="e.g. Elon Musk" required>
                     </div>
                     
-                    <div class="form-group">
+                    <div class="input-group">
                         <label>Email Address</label>
-                        <input type="email" name="email" class="form-control" placeholder="john@company.com" required>
+                        <input type="email" name="Email" class="modern-input" placeholder="elon@tesla.com" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label>How can we help you?</label>
-                        <textarea name="message" class="form-control" placeholder="Tell us about your project or inquiry..." required></textarea>
+                    <div class="input-group">
+                        <label>Project Details</label>
+                        <textarea name="Message" class="modern-input" placeholder="Describe your technical requirements..." required></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <button type="submit" class="btn-submit">Submit Inquiry</button>
                 </form>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 allinai.vision. Built for the future.</p>
+        <p>&copy; 2026 ALLINAI.VISION. Engineering the future.</p>
     </footer>
 
+    <script>
+        /* Adds a subtle hover glow effect to the cards */
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+            });
+        });
+    </script>
 </body>
 </html>
