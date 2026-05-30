@@ -3,97 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>All in AI Vision | Premium Domain for Acquisition</title>
     <meta name="description" content="allinai.vision is a premium digital asset available for acquisition. Perfect for AI startups and enterprise tech.">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
         body {
-            background-color: #050510;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
+            background-color: #050510; color: #ffffff; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; min-height: 100vh; text-align: center;
             background-image: radial-gradient(circle at 50% 30%, #111133 0%, #050510 100%);
         }
         .container {
-            max-width: 600px;
-            width: 90%;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(79, 172, 254, 0.2);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            z-index: 2;
+            max-width: 600px; width: 90%; padding: 40px; background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(79, 172, 254, 0.2); border-radius: 15px; backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); z-index: 2; position: relative;
         }
         .glow-text {
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-size: 3.5rem; font-weight: bold; margin-bottom: 10px;
             background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             text-shadow: 0px 0px 15px rgba(79, 172, 254, 0.3);
         }
-        .subtitle {
-            font-size: 1.1rem;
-            color: #a0a0a0;
-            margin-bottom: 30px;
-        }
+        .subtitle { font-size: 1.1rem; color: #a0a0a0; margin-bottom: 30px; }
         
-        /* Form Styling */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+        form { display: flex; flex-direction: column; gap: 15px; }
         input, textarea {
-            width: 100%;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(79, 172, 254, 0.3);
-            border-radius: 8px;
-            color: #fff;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s ease;
+            width: 100%; padding: 15px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(79, 172, 254, 0.3);
+            border-radius: 8px; color: #fff; font-size: 1rem; outline: none; transition: all 0.3s ease;
         }
-        input:focus, textarea:focus {
-            border-color: #00f2fe;
-            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
-        }
+        input:focus, textarea:focus { border-color: #00f2fe; box-shadow: 0 0 10px rgba(0, 242, 254, 0.2); }
         button {
-            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
-            color: #000;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%); color: #000; font-weight: bold;
+            font-size: 1.1rem; padding: 15px; border: none; border-radius: 8px; cursor: pointer;
+            transition: all 0.3s ease; margin-top: 10px;
+        }
+        button:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(79, 172, 254, 0.5); }
+        
+        /* Success Message Styling */
+        #success-message {
+            display: none;
+            background: rgba(0, 255, 135, 0.1);
+            border: 1px solid #00ff87;
+            color: #00ff87;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
             font-weight: bold;
             font-size: 1.1rem;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
+            animation: fadeIn 0.5s ease;
         }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(79, 172, 254, 0.5);
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         
-        .seo-hidden {
-            font-size: 0.8rem; 
-            color: #0a0a1a; 
-            margin-top: 40px; 
-        }
+        .seo-hidden { font-size: 0.8rem; color: #0a0a1a; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -102,23 +63,62 @@
         <h1 class="glow-text">allinai.vision</h1>
         <p class="subtitle">This premium domain is currently available for acquisition. Submit your proposal to initiate negotiations.</p>
         
-        <form action="https://formsubmit.co/kabirhussaing95@GMAIL.COM" method="POST">
-            
+        <form id="offerForm" action="https://formsubmit.co/kabirhussaing95@GMAIL.COM" method="POST">
             <input type="hidden" name="_subject" value="New Acquisition Offer for allinai.vision">
             <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value=""> 
             
             <input type="text" name="Name" placeholder="Your Name or Company" required>
             <input type="email" name="Email" placeholder="Corporate Email Address" required>
             <input type="text" name="Offer_Amount" placeholder="Offer Amount ($ USD)" required>
             <textarea name="Message" rows="3" placeholder="Additional details or intended use for the domain..." required></textarea>
             
-            <button type="submit">Submit Secure Offer</button>
+            <button type="submit" id="submitBtn">Submit Secure Offer</button>
         </form>
+
+        <div id="success-message">
+            ✓ Offer Submitted Successfully. Our team will review and contact you shortly.
+        </div>
     </div>
 
     <div class="seo-hidden">
         <p>Premium domain name allinai.vision for sale. Artificial intelligence domain asset perfect for machine learning startups, computer vision technology, and AI enterprise solutions. Exact match keyword tech domain.</p>
     </div>
+
+    <script>
+        document.getElementById('offerForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop the normal redirect
+            
+            const form = e.target;
+            const btn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('success-message');
+            
+            // Change button text while sending
+            btn.innerText = "Submitting...";
+            btn.style.opacity = "0.7";
+
+            // Send data in the background
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if(response.ok) {
+                    // Hide the form and show the green success message
+                    form.style.display = 'none';
+                    successMsg.style.display = 'block';
+                } else {
+                    btn.innerText = "Error. Please try again.";
+                    btn.style.opacity = "1";
+                }
+            })
+            .catch(error => {
+                btn.innerText = "Error. Please try again.";
+                btn.style.opacity = "1";
+            });
+        });
+    </script>
 
 </body>
 </html>
