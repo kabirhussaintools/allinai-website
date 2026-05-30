@@ -8,7 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap');
         
         :root {
-            --bg-dark: #050505;
+            --bg-dark: #030303;
             --bg-card: #0a0a0c;
             --primary: #00e5ff;
             --secondary: #7000ff;
@@ -17,39 +17,45 @@
             --glass-border: rgba(255, 255, 255, 0.08);
         }
 
-        /* Strict Reset to prevent horizontal scrolling */
-        html, body { 
-            width: 100%;
-            max-width: 100vw;
-            overflow-x: hidden; 
-            margin: 0; 
-            padding: 0; 
+        /* Strict CSS Reset */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body, html { 
+            width: 100%; 
             background-color: var(--bg-dark); 
             color: var(--text-main); 
             font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
-        *, *::before, *::after { 
-            box-sizing: border-box; 
+        /* Anti-Overflow Screen Lock */
+        .main-wrapper {
+            width: 100%; overflow: hidden; position: relative; min-height: 100vh;
         }
 
-        /* Ambient Background Glow */
-        .ambient-glow {
-            position: absolute; width: 100vw; height: 100vw; max-width: 600px; max-height: 600px;
-            background: radial-gradient(circle, rgba(112, 0, 255, 0.15) 0%, rgba(0,0,0,0) 60%);
-            border-radius: 50%; z-index: -1; top: -10%; left: -10%;
-            filter: blur(60px);
+        /* Futuristic Grid Background */
+        .bg-grid {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px; z-index: -2;
+            -webkit-mask-image: radial-gradient(circle at top, black 30%, transparent 80%);
+            mask-image: radial-gradient(circle at top, black 30%, transparent 80%);
         }
-        .ambient-glow.right {
-            top: 40%; right: -10%; left: auto;
-            background: radial-gradient(circle, rgba(0, 229, 255, 0.1) 0%, rgba(0,0,0,0) 60%);
+
+        /* Ambient Glow */
+        .ambient-glow {
+            position: absolute; width: 100%; max-width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(112, 0, 255, 0.15) 0%, rgba(0,0,0,0) 60%);
+            border-radius: 50%; z-index: -1; top: -100px; left: 50%; transform: translateX(-50%);
+            filter: blur(60px); pointer-events: none;
         }
 
         /* Modern Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px; background: rgba(5, 5, 5, 0.8);
+            padding: 18px 24px; background: rgba(3, 3, 3, 0.7);
             backdrop-filter: blur(24px); position: fixed; width: 100%; top: 0; z-index: 1000;
             border-bottom: 1px solid var(--glass-border);
         }
@@ -65,176 +71,225 @@
         .logo span { color: var(--text-muted); font-weight: 400; }
         
         .nav-btn {
-            background: #fff; color: #000; padding: 8px 16px; border-radius: 100px;
+            background: #fff; color: #000; padding: 8px 18px; border-radius: 100px;
             font-weight: 700; text-decoration: none; font-size: 0.85rem; transition: 0.3s;
-            white-space: nowrap;
+        }
+        .nav-btn:hover { box-shadow: 0 0 15px rgba(255,255,255,0.4); transform: scale(1.05); }
+
+        /* Success Popup Notification (Toast) */
+        .success-toast {
+            position: fixed; top: 20px; left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: rgba(0, 229, 255, 0.1); border: 1px solid rgba(0, 229, 255, 0.3);
+            backdrop-filter: blur(12px); color: #fff; padding: 14px 24px;
+            border-radius: 100px; display: flex; align-items: center; gap: 12px;
+            z-index: 9999; font-weight: 600; font-size: 0.9rem; white-space: nowrap;
+            opacity: 0; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
+        }
+        .success-toast.show { transform: translateX(-50%) translateY(70px); opacity: 1; }
+        .toast-icon {
+            background: var(--primary); color: #000; width: 22px; height: 22px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; font-weight: bold;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 120px 20px 60px; position: relative; width: 100%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 150px 24px 80px; width: 100%; max-width: 900px; margin: 0 auto;
         }
         .hero-badge {
             background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
             padding: 8px 20px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;
-            margin-bottom: 20px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;
+            margin-bottom: 25px; color: var(--primary); letter-spacing: 1px; text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
         }
         .hero h1 { 
-            font-size: 3rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; width: 100%;
+            font-size: clamp(2.5rem, 10vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 800; letter-spacing: -1px;
         }
         .hero h1 span { 
             background: linear-gradient(135deg, #fff 0%, #7000ff 100%); 
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
         }
         .hero p { 
-            font-size: 1rem; color: var(--text-muted); 
-            max-width: 100%; margin-bottom: 40px; line-height: 1.6; font-weight: 400;
+            font-size: 1.05rem; color: var(--text-muted); 
+            margin-bottom: 40px; line-height: 1.6; font-weight: 400;
         }
 
         /* Features Section */
-        .features { padding: 80px 20px; width: 100%; max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 50px; width: 100%; }
-        .section-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px;}
-        .section-header p { color: var(--text-muted); font-size: 1rem; }
+        .features { padding: 60px 24px; width: 100%; max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 12px;}
+        .section-header p { color: var(--text-muted); font-size: 1rem; line-height: 1.5; }
 
-        .grid { display: flex; flex-direction: column; gap: 20px; width: 100%; }
+        .grid { display: flex; flex-direction: column; gap: 20px; }
         .feature-card {
             background: var(--bg-card); border: 1px solid var(--glass-border);
-            padding: 30px 25px; border-radius: 20px; transition: 0.4s; position: relative; width: 100%;
+            padding: 35px 25px; border-radius: 20px; transition: 0.4s; position: relative;
         }
-        
         .icon-wrapper {
-            width: 50px; height: 50px; border-radius: 15px; background: rgba(255,255,255,0.03);
+            width: 54px; height: 54px; border-radius: 14px; background: rgba(255,255,255,0.03);
             border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem; margin-bottom: 20px;
         }
-        .feature-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.5px; }
+        .feature-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; }
         .feature-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
 
         /* Premium Contact Form */
-        .contact-section { padding: 80px 20px; background: #000; border-top: 1px solid var(--glass-border); width: 100%; }
+        .contact-section { padding: 80px 24px; background: #000; border-top: 1px solid var(--glass-border); width: 100%; }
         .contact-wrapper { width: 100%; max-width: 600px; margin: 0 auto; }
         .contact-header { text-align: center; margin-bottom: 40px; }
-        .contact-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px; }
+        .contact-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
         
         .form-box {
             background: var(--bg-card); border: 1px solid var(--glass-border);
-            padding: 30px 20px; border-radius: 20px; width: 100%;
+            padding: 35px 24px; border-radius: 24px; width: 100%;
         }
         .input-group { margin-bottom: 20px; width: 100%; }
         .input-group label { display: block; color: #fff; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
         .modern-input {
-            width: 100%; padding: 15px; background: #050505;
+            width: 100%; padding: 16px; background: #050505;
             border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
-            color: #fff; font-size: 1rem;
+            color: #fff; font-size: 1rem; transition: 0.3s;
         }
-        .modern-input:focus { outline: none; border-color: var(--primary); }
-        textarea.modern-input { height: 120px; resize: none; }
+        .modern-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.2); }
+        textarea.modern-input { height: 130px; resize: none; }
         
         .btn-submit {
             width: 100%; padding: 18px; background: #fff; color: #000;
-            border: none; border-radius: 12px; font-size: 1rem; font-weight: 700;
-            cursor: pointer; margin-top: 10px;
+            border: none; border-radius: 12px; font-size: 1.05rem; font-weight: 700;
+            cursor: pointer; margin-top: 10px; transition: 0.3s;
         }
+        .btn-submit:hover { background: var(--primary); color: #000; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 229, 255, 0.2); }
 
-        footer { text-align: center; padding: 30px 20px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--glass-border); width: 100%; }
+        footer { text-align: center; padding: 30px 24px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--glass-border); width: 100%; }
 
-        /* Tablet and Desktop specific styling */
         @media (min-width: 768px) {
-            .hero h1 { font-size: 5rem; }
-            .hero p { font-size: 1.2rem; }
+            nav { padding: 24px 6%; }
             .logo { font-size: 1.6rem; }
-            .grid { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+            .hero { padding: 180px 24px 100px; }
+            .features, .contact-section { padding: 100px 6%; }
+            .grid { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 30px; }
             .feature-card { width: calc(33.333% - 20px); padding: 40px; }
             .form-box { padding: 50px; }
-            .nav-btn { padding: 10px 24px; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="ambient-glow"></div>
-    <div class="ambient-glow right"></div>
+    <div id="success-toast" class="success-toast">
+        <div class="toast-icon">✓</div>
+        Message Sent Successfully!
+    </div>
 
-    <nav>
-        <a href="#" class="logo">
-            <div class="logo-icon"></div>
-            ALLINAI<span>.VISION</span>
-        </a>
-        <a href="#contact" class="nav-btn">Connect</a>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-badge">Next-Gen Intelligence</div>
-        <h1>Intelligence<br><span>Redefined.</span></h1>
-        <p>We architect sophisticated AI models, computer vision systems, and automated infrastructures to scale your business beyond human limitations.</p>
-    </section>
-
-    <section class="features">
-        <div class="section-header">
-            <h2>Our Capabilities</h2>
-            <p>Deploying state-of-the-art machine learning into real-world applications.</p>
-        </div>
+    <div class="main-wrapper">
         
-        <div class="grid">
-            <div class="feature-card">
-                <div class="icon-wrapper">👁️</div>
-                <h3>Computer Vision</h3>
-                <p>Deploy high-accuracy spatial computing and image recognition models to extract actionable data from visual environments.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-wrapper">⚡</div>
-                <h3>Autonomous Systems</h3>
-                <p>Replace manual bottlenecks with custom AI agents that execute complex, multi-step workflows with zero latency.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-wrapper">🧠</div>
-                <h3>Predictive Analytics</h3>
-                <p>Leverage deep learning algorithms to process massive datasets, forecast market trends, and optimize resource allocation.</p>
-            </div>
-        </div>
-    </section>
+        <div class="bg-grid"></div>
+        <div class="ambient-glow"></div>
 
-    <section class="contact-section" id="contact">
-        <div class="contact-wrapper">
-            <div class="contact-header">
-                <h2>Initiate Project</h2>
-                <p style="color: var(--text-muted);">Connect with our engineering team.</p>
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                ALLINAI<span>.VISION</span>
+            </a>
+            <a href="#contact" class="nav-btn">Connect</a>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-badge">Next-Gen Intelligence</div>
+            <h1>Intelligence<br><span>Redefined.</span></h1>
+            <p>We architect sophisticated AI models, computer vision systems, and automated infrastructures to scale your business beyond human limitations.</p>
+        </section>
+
+        <section class="features">
+            <div class="section-header">
+                <h2>Our Capabilities</h2>
+                <p>Deploying state-of-the-art machine learning into real-world applications.</p>
             </div>
             
-            <div class="form-box">
-                <form action="https://formsubmit.co/kabirhussaing95@gmail.com" method="POST">
-                    
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="🚀 New Lead: All in AI Vision">
-                    <input type="hidden" name="_next" value="https://allinai.vision">
-                    <input type="hidden" name="_template" value="box">
-                    
-                    <div class="input-group">
-                        <label>Full Name</label>
-                        <input type="text" name="Name" class="modern-input" placeholder="e.g. Elon Musk" required>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label>Email Address</label>
-                        <input type="email" name="Email" class="modern-input" placeholder="elon@tesla.com" required>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label>Project Details</label>
-                        <textarea name="Message" class="modern-input" placeholder="Describe your technical requirements..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn-submit">Submit Inquiry</button>
-                </form>
+            <div class="grid">
+                <div class="feature-card">
+                    <div class="icon-wrapper">👁️</div>
+                    <h3>Computer Vision</h3>
+                    <p>Deploy high-accuracy spatial computing and image recognition models to extract actionable data from visual environments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrapper">⚡</div>
+                    <h3>Autonomous Systems</h3>
+                    <p>Replace manual bottlenecks with custom AI agents that execute complex, multi-step workflows with zero latency.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrapper">🧠</div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Leverage deep learning algorithms to process massive datasets, forecast market trends, and optimize resource allocation.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <p>&copy; 2026 ALLINAI.VISION. Engineering the future.</p>
-    </footer>
+        <section class="contact-section" id="contact">
+            <div class="contact-wrapper">
+                <div class="contact-header">
+                    <h2>Initiate Project</h2>
+                    <p style="color: var(--text-muted);">Connect with our engineering team.</p>
+                </div>
+                
+                <div class="form-box">
+                    <form action="https://formsubmit.co/kabirhussaing95@gmail.com" method="POST">
+                        
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="🚀 New Lead: All in AI Vision">
+                        <input type="hidden" name="_template" value="box">
+                        
+                        <input type="hidden" name="_next" value="https://allinai.vision/?success=true">
+                        
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" name="Name" class="modern-input" placeholder="e.g. Elon Musk" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" name="Email" class="modern-input" placeholder="elon@tesla.com" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Project Details</label>
+                            <textarea name="Message" class="modern-input" placeholder="Describe your technical requirements..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
 
+        <footer>
+            <p>&copy; 2026 ALLINAI.VISION. Engineering the future.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if the URL has ?success=true
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                
+                // Show the popup
+                const toast = document.getElementById('success-toast');
+                toast.classList.add('show');
+                
+                // Remove ?success=true from the URL so it looks clean
+                window.history.replaceState({}, document.title, window.location.pathname);
+                
+                // Hide the popup automatically after 5 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 5000);
+            }
+        });
+    </script>
 </body>
-</html>
+    </html>
+    
